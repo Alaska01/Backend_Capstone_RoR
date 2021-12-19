@@ -1,8 +1,7 @@
 module Api
     module V1
         class FavouritesController < ApplicationController
-            # before_action :set_Favourite, only: [:show, :update, :destroy]
-            before_action :authorized
+            # before_action :authorized
         
             # GET /Favourites
             def index

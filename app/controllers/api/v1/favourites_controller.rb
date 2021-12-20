@@ -7,7 +7,7 @@ module Api
             def index
             @favourites = Favourite.all
         
-            render json: @favourites, only: [:id, :user_id]
+            render json: @favourites, only: [:id, :user_id, :house_id]
             end
         
             # GET /Favourites/1
@@ -42,13 +42,13 @@ module Api
         
             private
             # Use callbacks to share common setup or constraints between actions.
-            def set_Favourite
-                @Favourite = Favourite.find(params[:id])
+            def set_favourite
+                @favourite = Favourite.find(params[:id])
             end
         
             #   # Only allow a list of trusted parameters through.
             def favourite_params
-                params.require(:favourite).permit(:favourite_name, :password)
+                params.require(:favourite).permit(:favourite_name, :password, :user_id, house_id)
             end
     end
   end

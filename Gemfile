@@ -4,6 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 gem 'active_model_serializers', '~> 0.10.2'
 ruby '2.7.1'
 gem 'hirb', '~> 0.7.3'
+gem 'jwt'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
 gem 'rubocop', '>= 1.0', '< 2.0'
@@ -12,6 +13,7 @@ gem 'sqlite3', '~> 1.4'
 gem 'pg', '~> 1.1'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
+gem 'rack-cors'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker

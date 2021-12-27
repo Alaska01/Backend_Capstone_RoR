@@ -1,7 +1,7 @@
 module Api
     module V1
         class FavouritesController < ApplicationController
-            before_action :authorized only: [:index]
+            # before_action :authorized only: [:index]
         
             # GET /Favourites
             def index
@@ -39,10 +39,6 @@ module Api
             # def destroy
             #   @Favourite.destroy
             # end
-
-            def jack
-
-            end
         
             private
             # Use callbacks to share common setup or constraints between actions.
@@ -52,7 +48,7 @@ module Api
         
             #   # Only allow a list of trusted parameters through.
             def favourite_params
-                params.require(:favourite).permit(:favourite_name, :password, :user_id, house_id)
+                params.require(:favourite).permit(:favourite_name, :user_id, house_id)
             end
     end
   end

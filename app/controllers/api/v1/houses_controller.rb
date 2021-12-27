@@ -7,7 +7,7 @@ module Api
     def index
       @houses = House.all
   
-      render json: @houses, only: [:id, :user_id, :username, :house_name, :house_description]
+      render json: @houses, only: [:id, :username, :house_name, :house_description, :images]
     end
   
     # GET /houses/1

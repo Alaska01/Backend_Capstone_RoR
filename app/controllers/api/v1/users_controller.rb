@@ -1,63 +1,34 @@
 module Api
     module V1
         class UsersController < ApplicationController
-            before_action :authorized, only: [:auto_login]
-  
-            # GET /users
-            def index
+        rescue_from ActionController::ParameterMissing, with: :parameter_missing
+        def index
             @users = User.all
-        
-            render json: @users, only: [:id, :username, :password, :password_confirmation]
-            end
-        
-            # GET /users/1
-            def show
-            # @user = User.find(params[:id])
-            set_user
-            render json: @user, only: [:id, :username]
-            end
-        
-        
-        #  ***************************************
-        
-        # REGISTER POST /users
+            render json:  @users
+        end
+
         def create
-            @user = User.create(user_params)
-            if @user.valid?
-            token = encode_token({user_id: @user.id})
-            render json: {user: @user, token: token}
-            else
-            render json: {error: "Invalid username or password"}
-            end
-        end
-        
-        # LOGGING IN
-        def login
-            @user = User.find_by(username: user_params[:username])
-        
-            if @user && @user.authenticate(user_params[:password])
-            token = encode_token({user_id: @user.id})
-            render json: {user: @user, token: token}
-            else
-            render json: {error: "Invalid username or password"}
-            end
+          @user = User.new(user_params)
+          if @user.save
+            token = AuthenticationTokenService.encode(@user.id)
+            render json: {
+              token: token,
+              username: @user.username
+            }, status: :created
+          else
+            render json: { error: @user.errors }, status: :unprocessable_entity
+          end
         end
   
-        def auto_login
-            render json: @user
+        private
+  
+        def parameter_missing(error)
+          render json: { error: error.message }, status: :unprocessable_entity
         end
   
-  
-    private
-      # Use callbacks to share common setup or constraints between actions.
-      def set_user
-        @user = User.find(params[:id])
-      end
-  
-      # Only allow a list of trusted parameters through.
-      def user_params
-        params.require(:user).permit(:username, :password, :password_confirmation) 
-      end
+        def user_params
+          params.require(:user).permit(:username, :password, :password_confirmation)
+        end
   end
   
   end

@@ -4,12 +4,17 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       #add a root resource here later
-      post "/login", to: "users#login"
-      get "/auto_login", to: "users#auto_login"
+      # post "/login", to: "users#login"
+      # get "/auto_login", to: "users#auto_login"
       resources :users
-      resources :houses
-      resources :favourites
+      # resources :houses
+      # resources :favourites
       # get '/users/:id', to: 'users#import1'
+
+      post 'signup', to: 'users#create'
+      post 'login', to: 'authentication#create'
+      resources :houses, only: %i[index show]
+      resources :favourites, only: %i[index create destroy]
     end
   end
 end

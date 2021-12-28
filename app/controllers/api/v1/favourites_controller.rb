@@ -6,11 +6,11 @@ module Api
         before_action :authenticate_user
   
         def index
-          render json: House.new(@user.favourite_houses)
+          render json: HousesSerializer.new(@user.favourite_houses).as_json
         end
   
         def create
-          @hotel = House.find(favourite_params[:house_id])
+          @house = House.find(favourite_params[:house_id])
           favourite = Favourite.new(user_id: @user.id, house_id: @house.id)
           if favourite.save
             head :created

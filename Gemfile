@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-gem 'active_model_serializers', '~> 0.10.2'
+# gem 'active_model_serializers', '~> 0.10.2'
 ruby '2.7.1'
 gem 'hirb', '~> 0.7.3'
 gem 'jwt'

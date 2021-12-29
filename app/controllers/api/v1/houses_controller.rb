@@ -8,7 +8,6 @@ module Api
 
       # GET /houses/1
       def show
-
         house = House.find(params[:id])
         if house
           render json: HouseSerializer.new(house).as_json, status: :ok

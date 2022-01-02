@@ -15,10 +15,10 @@
 
 ## Live version
 
-### [Live Version]()
+### [Live Version](https://ayecapstonebackend.herokuapp.com/api/v1/houses)
 
 ## Front-End
-### [Frontend Link](https://github.com/Alaska01)
+### [Frontend Link](https://github.com/Alaska01/Frontend_Capstone_React/tree/frontend)
 
 
 ## Getting Started
@@ -31,10 +31,9 @@ On your terminal, run
 ```
 
 ## Backend End Points
--http://localhost:3001/api/v1/users
--http://localhost:3001/api/v1/houses
--http://localhost:3001/api/v1/favourites
-
+-https://ayecapstonebackend.herokuapp.com/api/v1/users
+-https://ayecapstonebackend.herokuapp.com/api/v1/houses
+-https://ayecapstonebackend.herokuapp.com/api/v1/favourites
 ### Prerequisites
 
 - Ruby: 2.7.1
@@ -74,7 +73,7 @@ Start server with:
 ```
     rails s -p 3001
 ```
-
+- Edit the endpoints to be able to run app locally
 Open `http://localhost:3001/` in your browser.
 
 ### Run tests

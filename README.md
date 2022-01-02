@@ -37,7 +37,7 @@ On your terminal, run
 ### Prerequisites
 
 - Ruby: 2.7.1
-- Rails: 6.0.0.0
+- Rails: 6.1.4.4
 - Postgres: >=9.5
 
 ### Setup

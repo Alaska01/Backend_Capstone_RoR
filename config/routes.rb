@@ -10,7 +10,7 @@ Rails.application.routes.draw do
       # resources :houses
       # resources :favourites
       # get '/users/:id', to: 'users#import1'
-
+      root 'houses#index'
       post 'signup', to: 'users#create'
       post 'login', to: 'authentication#create'
       resources :houses, only: %i[index show]

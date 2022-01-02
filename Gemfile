@@ -7,9 +7,9 @@ gem 'hirb', '~> 0.7.3'
 gem 'jwt'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
-gem 'rubocop-rails', '~> 2.13'
+# gem 'rubocop-rails', '~> 2.13'
 
-# gem 'rubocop', '>= 1.0', '< 2.0'
+gem 'rubocop', '>= 1.0', '< 2.0'
 # Use sqlite3 as the database for Active Record
 gem 'dotenv-rails'
 gem 'pg'
@@ -40,7 +40,6 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'rspec-rails'
-  # gem 'rubocop-rspec', '~> 2.7'
 end
 
 group :test do

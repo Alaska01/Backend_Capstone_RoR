@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 2021_12_29_164103) do
   enable_extension "plpgsql"
 
   create_table "favourites", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "house_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "house_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["house_id"], name: "index_favourites_on_house_id"
